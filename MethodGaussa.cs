@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Laba1
 {
-    public static class MehodGaussa 
+    public class MethodGaussa : MatrixTools
     {
-     
+
         // Function to get matrix content
-        static void gaussianElimination(double[,] a)
+        public static void gaussianElimination(float[,] a)
         {
             int length = a.GetLength(0);
             /* reduction into r.e.f. */
@@ -36,34 +36,10 @@ namespace Laba1
             backSub(a);
         }
 
-        // Function for elementary operation of swapping two
-        // rows
-        static void swap_row(double[,] a, int i, int j)
-        {
-            int length = a.GetLength(0);
-            // printf("Swapped rows %d and %d\n", i, j);
 
-            for (int k = 0; k <= length; k++)
-            {
-                double temp = a[i, k];
-                a[i, k] = a[j, k];
-                a[j, k] = temp;
-            }
-        }
-
-        // Function to print matrix content at any stage
-        static void print(double[,] a)
-        {
-            int length = a.GetLength(0);
-            for (int i = 0; i < length; i++, Console.WriteLine())
-                for (int j = 0; j <= length; j++)
-                    Console.Write(a[i, j]);
-
-            Console.WriteLine();
-        }
 
         // Function to reduce matrix to r.e.f.
-        static int forwardElim(double[,] a)
+        public static int forwardElim(float[,] a)
         {
             int length = a.GetLength(0);
             for (int k = 0; k < length; k++)
@@ -100,7 +76,7 @@ namespace Laba1
                         /* factor f to set current row kth element
                         *  to 0, and subsequently remaining kth
                         *  column to 0 */
-                        double f = a[i, k] / a[k, k];
+                        float f = a[i, k] / a[k, k];
 
                         /* subtract fth multiple of corresponding
                            kth row element*/
@@ -119,8 +95,8 @@ namespace Laba1
             return -1;
         }
 
-        // Function to calculate the values of the unknowns
-        static void backSub(double[,] a)
+        // Function to calculate the values of the unknownSs
+        public static void backSub(float[,] a)
         {
             int length = a.GetLength(0);
 

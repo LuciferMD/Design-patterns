@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Laba1
 {
-    public static class MethodJordanGaussa 
+    public  class MethodJordanGaussa : MatrixTools
     {
         public static int SolvingSystemLEMethodJG(float[,] matrix)
         {
@@ -21,18 +21,7 @@ namespace Laba1
         }
 
         // Function to print the matrix
-        public static void PrintExtendedMatrix(float[,] a)
-        {
-            int length = a.GetLength(0);
-
-            for (int i = 0; i < length; i++)
-            {
-                for (int j = 0; j <= length; j++)
-                    Console.Write(a[i, j] + "\t");
-                Console.WriteLine();
-            }
-
-        }
+      
 
         // Function to print the desired result
         // if unique solutions exists, otherwise
@@ -95,29 +84,18 @@ namespace Laba1
                         flag = 1;
                         break;
                     }
-                    for (j = i, k = 0; k <= length; k++)
-                    {
-                        float temp = a[j, k];
-                        a[j, k] = a[j + c, k];
-                        a[j + c, k] = temp;
-                    }
+
+                    swap_row(a, i, i + c);
+                    
                 } //Select max element in current row 
                 for (int t = i, v = i; v < length; v++)
                 {
                     if (a[t, t] < a[v, t])
                     {
-                        for (j = t, k = 0; k <= length; k++)
-                        {
-                            float temp = a[j, k];
-                            a[j, k] = a[v, k];
-                            a[v, k] = temp;
-                        }
+                        swap_row(a, t, v);
                     }
 
                 }
-                //Console.WriteLine();
-                //PrintExtendedMatrix(a);
-                // Console.WriteLine();
                 for (j = 0; j < length; j++)
                 {
 
