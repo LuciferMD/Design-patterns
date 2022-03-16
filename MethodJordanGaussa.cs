@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Laba1
 {
-    public static class MethodJordanGaussa
+    public static class MethodJordanGaussa 
     {
-
         public static int SolvingSystemLEMethodJG(float[,] matrix)
         {
             // Order of Matrix(n)
