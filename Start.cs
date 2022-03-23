@@ -13,8 +13,7 @@ namespace PiramidSolitaire
 
             Card card = new Card();
 
-            card.Suit = suitVar.Clubs;
-            card.Value = 2;
+            
 
             card.PrintCardConsole();
 
