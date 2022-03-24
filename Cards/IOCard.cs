@@ -5,7 +5,7 @@ using System.Text;
 namespace PiramidSolitaire.Cards
 {
     //Extension class
-    public static class CheckInputCard
+    public static class IOCard
     {
         /// <summary>
         /// Extension method for set card
@@ -28,6 +28,8 @@ namespace PiramidSolitaire.Cards
             return card;
 
         }
+
+        
 
 
     }

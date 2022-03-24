@@ -1,4 +1,5 @@
 ﻿using PiramidSolitaire.Cards;
+using PiramidSolitaire.DeckSpace;
 using System;
 using System.Text;
 
@@ -10,12 +11,19 @@ namespace PiramidSolitaire
         {
             Console.OutputEncoding = Encoding.UTF8;
 
+            Deck deck = new Deck();
 
-            Card card = new Card();
+            deck.ShuffleDeck();
 
+            for (int i = 10; i < 51; i++)
+            {
+
+                deck.getCard(i).PrintCardConsole();
+
+            }
             
 
-            card.PrintCardConsole();
+           
 
         }
     }
