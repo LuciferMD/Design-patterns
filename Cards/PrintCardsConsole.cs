@@ -230,6 +230,8 @@ namespace PiramidSolitaire.Cards
             }
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
+            Console.CursorLeft += 5;
+            Console.CursorTop -= 6;
         }
     }
 }

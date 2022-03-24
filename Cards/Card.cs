@@ -16,10 +16,6 @@ namespace PiramidSolitaire.Cards
     public class Card 
     {
 
-        public Card()
-        {
-
-        }
         public suitVar Suit { get; set; }   
         public int Value { get; set; }
 
