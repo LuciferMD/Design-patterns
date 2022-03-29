@@ -29,6 +29,11 @@ namespace PiramidSolitaire.Cards
 
         }
 
+        public static int getValue(this Card card)
+        {
+            return card.Value;
+        }
+
         
 
 

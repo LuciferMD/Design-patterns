@@ -17,13 +17,17 @@ namespace PiramidSolitaire.GameLogic
             Console.SetCursorPosition(Console.WindowWidth/2,1);
 
 
-            for (int y = 0; y <= piramidCards.Length - 1; y++)
+            for (int y = 0; y <= piramidCards.Length-1; y++)
             { 
-                for (int x = 1; x <= y; x++)
+                for (int x = 0; x <= y; x++)
                 {
                     piramidCards.getCard(y, x)?.PrintCardConsole();
                 }
-                Console.SetCursorPosition(Console.WindowWidth / 2 - y * 8, y * 4);
+                y ++;
+                Console.CursorLeft = Console.WindowWidth / 2 - y * 8;
+                Console.CursorTop +=  4;
+                y--;
+               
             }
 
         }
