@@ -8,6 +8,8 @@ namespace PiramidSolitaire.Piramid
     public class PiramidCards
     {
         public Card[][] piramideCards = new Card[7][];
+
+        public Card[] availableCard = new Card[7]; // Available to choice
         public int Length { get;}
         public PiramidCards()
         {

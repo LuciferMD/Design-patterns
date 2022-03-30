@@ -30,6 +30,8 @@ namespace PiramidSolitaire
            
             PrintGameConsole.PrintGame(piramidCards, deck.getCard(counter)); //print first screen
 
+            Card card111 = new();
+            ref Card reFirstC = ref card111;
            
             while (true)
             {
@@ -37,12 +39,25 @@ namespace PiramidSolitaire
 
                 switch (button)
                 {
-                    case 0:
-                        selectedCouple.add(deck.getCard(counter)); //Add card from deck to sum with second card
-                        if (selectedCouple.check())
+                    case 0://Add card from deck to sum with second card
+
+                        selectedCouple.Add(deck.getCard(counter)) ;  // Add card to compare
+                        if (selectedCouple.Check())  // if we added card and complete, delete this card from deck and piramid
                         {                      
                             deck.setCard(counter, null);
+                            reFirstC = null;
                         }
+                        else  // if no remembered ref on this card 
+                        {
+                            reFirstC = deck.getRefCard(counter);
+                        }
+
+                        if (counter == 51) { counter = 29; }  //end deck              
+                        while (deck.getCard(counter) == null)
+                        {
+                            counter++;
+                        }
+
                         break;
                     case 1:
                         //piramidCards.getCard()
@@ -66,13 +81,14 @@ namespace PiramidSolitaire
                         {
                             counter++;
                         }
-                        Console.Clear(); 
                         break;
                     default:
                         break;
                 }
-               
-              PrintGameConsole.PrintGame(piramidCards, deck.getCard(counter)); //print first screen
+
+
+                Console.Clear();
+                PrintGameConsole.PrintGame(piramidCards, deck.getCard(counter)); //print first screen
                     
                 //Console.Clear();
             }

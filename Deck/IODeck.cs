@@ -17,5 +17,9 @@ namespace PiramidSolitaire.DeckSpace
             deck.cards[number] = card;
         }
 
+        public static ref Card getRefCard(this Deck deck, int number)
+        {
+            return ref deck.cards[number];
+        }
     }
 }

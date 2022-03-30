@@ -42,6 +42,17 @@ namespace PiramidSolitaire.Piramid
 
             }
 
+            for (int i = 0; i <= piramidCards.piramideCards.Length-1; i++) 
+            {
+                piramidCards.availableCard[i] = piramidCards.piramideCards[6][i];
+            }
+            
+
+        }
+
+        public static void GetCard(this PiramidCards piramidCards, byte number)
+        {
+            
         }
     }
 }
