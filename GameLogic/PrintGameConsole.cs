@@ -22,6 +22,11 @@ namespace PiramidSolitaire.GameLogic
                 for (int x = 0; x <= y; x++)
                 {
                     piramidCards.getCard(y, x)?.PrintCardConsole();
+                    if (piramidCards?.getCard(y, x) == null)
+                    {
+                        Console.CursorLeft += 16;
+
+                    }
                 }
                 y ++;
                 Console.CursorLeft = Console.WindowWidth / 2 - y * 8;

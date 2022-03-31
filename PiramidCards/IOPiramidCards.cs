@@ -20,6 +20,11 @@ namespace PiramidSolitaire.Piramid
             return piramidCards.piramideCards[row][colum];
         }
 
+        public static ref Card getRefCard(this PiramidCards piramidCards, int row, int colum)
+        {
+            return ref piramidCards.piramideCards[row][colum];
+        }
+
         /// <summary>
         /// Push first 28 cards from deck to piramid. This card in deck became equal null
         /// </summary>
@@ -50,9 +55,27 @@ namespace PiramidSolitaire.Piramid
 
         }
 
-        public static void GetCard(this PiramidCards piramidCards, byte number)
+        public static (int,int) GetAvailableCard(this PiramidCards piramidCards, int number) //to do
         {
-            
+            number--;
+
+            for (int y = piramidCards.Length-1; y >=0 ; y--)
+            {
+                if ((piramidCards.getCard(y, number) == null) && piramidCards.piramideCards[y].Length == number+1) //(null | end)
+                {
+                    return (-1, -1);
+                }
+                else if ((piramidCards.getCard(y, number) ==null)&&( piramidCards.getCard(y, number+1) != null)) // (card | null)
+                {
+                    return (-1, -1);
+                }
+                else if (piramidCards.getCard(y, number) != null) // (card | card)
+                {
+                    return (y, number);
+                }
+
+            }
+            return (-1, -1);
         }
     }
 }
