@@ -177,6 +177,7 @@ namespace PiramidSolitaire
                         else { counter++; }
                         while (deck.getCard(counter)==null)
                         {
+                            if (counter == 51) { counter = 28; }
                             counter++;
                         }
                         break;
@@ -187,6 +188,7 @@ namespace PiramidSolitaire
                 if (counter == 51) { counter = 28; }  //end deck              
                 while (deck.getCard(counter) == null)
                 {
+                    if (counter == 51) { counter = 28; }
                     counter++;
                 }
                 Console.Clear();
